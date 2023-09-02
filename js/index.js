@@ -42,12 +42,17 @@ const handleLoadInfos = async (categortId) => {
     data.data?.forEach((infos) => {
       const div = document.createElement("div");
       div.innerHTML = `
-          <div class="mt-6 card grid grid-cols-1 bg-base-100 shadow-xl">
+          <div class="mt-6 mb-10 card grid grid-cols-1 bg-base-100 shadow-xl">
         <figure>
           <img
             src="${infos?.thumbnail}"
+            
           />
         </figure>
+        <div class="bg-black text-white text-right"><p>${
+          infos?.others?.posted_date
+        }</p></div>
+        
         <div class="card-body">
          <div class="flex gap-2">
            <img class="profile-picture" src="${
@@ -79,7 +84,7 @@ const handleLoadInfos = async (categortId) => {
       </div>
         `;
       cardContainer.appendChild(div);
-      //console.log(data.data);
+      console.log(data.data);
       //console.log(data.data);
     });
   }
