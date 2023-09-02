@@ -9,7 +9,9 @@ const handleCategory = async () => {
   data.data.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
-         <a onclick="handleLoadInfos('${category.category_id}')" class="tab">${category.category}</a>
+        <a onclick="handleLoadInfos('${category.category_id}')" class="btn rounded bg-gray-400 text-black normal-case text-xl"
+            >${category.category}</a
+         
         `;
     tabContainer.appendChild(div);
   });
@@ -24,45 +26,68 @@ const handleLoadInfos = async (categortId) => {
   const data = await response.json();
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  data.data?.forEach((infos) => {
+  if (data.data.length === 0) {
     const div = document.createElement("div");
     div.innerHTML = `
-         <div class="card w-96 bg-base-100 shadow-xl">
+          <section class="container mx-auto h-screen flex flex-col justify-center items-center">
+            <div class="text-center">
+                <img src="images/Icon.png" alt="">
+                <h1>Oops!! Sorry, There is no content here</h1>
+            </div>
+            </section>
+        `;
+    cardContainer.appendChild(div);
+  } else {
+    data.data?.forEach((infos) => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+          <div class="card w-96 bg-base-100 shadow-xl">
         <figure>
           <img
             src="${infos?.thumbnail}"
           />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">
+         <div class="flex gap-2">
+           <img class="profile-picture" src="${
+             infos?.authors[0]?.profile_picture
+           }" />
+          <h2 class="card-title text-base font-bold">
             ${infos?.title}
           </h2>
-          <p>${infos?.category_id}</p>
-          <div class="">
-            
-            <div class="w-14 rounded-full">NEW
-                <img
-            src="${infos?.authors?.profile_picture}"
-            
-          />
-          <p>${data.data?.authors?.profile_name}</p>
-            </div>
+          <p></p>
+          
           </div>
           <div class="">
-            
-            <div class="badge badge-secondary">NEW</div>
+            <small  class="text-base font-sm">${
+              infos?.authors[0]?.profile_name
+            }</small>  
+            <div class="badge ">${
+              infos?.authors[0]?.verified === true
+                ? '<div class="badge"><img src="images/fi_10629607.svg" alt=""></div>'
+                : ""
+            }</div>
           </div>
 
           <div class="card-actions justify-start">
-            <div class="badge badge-outline">${infos?.others?.views}</div>
+            <div class="badge badge-outline text-base font-sm">${
+              infos?.others?.views ? infos?.others?.views : "no views"
+            } Views</div>
           </div>
         </div>
       </div>
         `;
-    cardContainer.appendChild(div);
-    console.log(data.data);
-  });
+      cardContainer.appendChild(div);
+      //console.log(data.data);
+      //console.log(data.data);
+    });
+  }
+
   //console.log(data.data);
 };
+function goToIndex() {
+  window.location.href = "index.html";
+}
+
 handleCategory();
 handleLoadInfos("1000");

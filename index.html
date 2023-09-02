@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phero Tube</title>
     <!-- link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
       rel="stylesheet"
@@ -14,7 +18,7 @@
   </head>
   <body>
     <!--nav section -->
-    <section class="m-10">
+    <section class="m-10 grid grid-cols-1">
       <div class="navbar bg-base-100">
         <div class="navbar-start">
           <a class="btn rounded normal-case text-xl"
@@ -22,35 +26,39 @@
           /></a>
         </div>
         <div class="navbar-center">
-          <a class="btn rounded text-black normal-case text-xl">Sort by view</a>
+          <a class="btn rounded bg-gray-400 text-black normal-case text-xl ">Sort by view</a>
         </div>
+
         <div class="navbar-end">
-          <a class="btn rounded bg-[#FF1F3D] text-white normal-case text-xl"
+          <a href="blog.html" class="btn rounded bg-[#FF1F3D] text-white normal-case text-xl"
             >Blog</a
           >
         </div>
       </div>
     </section>
-
+    
     <!-- tab section -->
     <section>
       <div class="tab-container w-full">
         <div
-          class="tabs tabs p-5 w-96 m-auto text-center flex justify-center"
+          class="tabs tabs p-5  m-auto text-center flex justify-center text-xl font-semibold gap-4"
           id="tab-container"
         >
           <!-- <a class="tab">Tab 1</a>
+            <a onclick="handleLoadInfos('${category.category_id}')" class="tab tab-lifted bg-gray-400  text-black tab-active ">${category.category}</a>
           <a class="tab tab-active">Tab 2</a>
           <a class="tab">Tab 3</a>
           <a class="tab">Tab 4</a> -->
         </div>
       </div>
     </section>
-    
+   
     <!-- card -->
-    <section class="mx-auto">
-      <div id="card-container" class="grid grid-cols-4 gap-4">
-       
+    <section class="container mx-auto">
+      <div
+        id="card-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-40 "
+      >
         <!-- <div class="card w-96 bg-base-100 shadow-xl">
         <figure>
           <img
@@ -72,8 +80,7 @@
           </div>
         </div>
       </div> -->
-      </div>
-    </section>
+      
 
     <!-- script -->
     <script src="js/index.js"></script>
