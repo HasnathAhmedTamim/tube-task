@@ -17,7 +17,7 @@ const handleCategory = async () => {
 };
 
 const handleLoadInfos = async (categortId) => {
-  console.log(categortId);
+  //console.log(categortId);
   const response = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categortId}`
   );
