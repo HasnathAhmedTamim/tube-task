@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog</title>
-   
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Understanding JavaScript Variables and REST APIs</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Link to your stylesheet -->
+    <link rel="stylesheet" href="index.html" />
+    <link rel="stylesheet" href="styles/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
       rel="stylesheet"
@@ -13,16 +15,172 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  </head>
-  <body>
-    <header>Blog</header>
-    <h1>Blogs</h1>
+  <body class="container mx-auto text-justify">
+    
+    <header>
+      <br>
+      <h1 class="text-2xl font-extrabold">Blog Questions</h1>
+      <br>
+    </header>
+
+    <article class="">
+      <section >
+        <h2 class="text-lg font-bold text-yellow-200">
+          Discuss the scope of var, let, and const
+        </h2>
+        <br>
+        <div class="bg-blue-200 p-4 mb-3">
+          <h2 class="font-bold text-black">"var":</h2>
+          <p class="font-bold text-black ">
+            var is the oldest variable declaration keyword in JavaScript, and it
+            has function scope.It becomes a global variable and is accessible
+            throughout the entire JavaScript program.
+          </p>
+          <ul class="font-bold text-amber-500">
+            <li>1.Function-scoped or globally-scoped.</li>
+            <li>2.Hoisted to the top of the function or global scope</li>
+            <li>3.Can lead to unexpected behavior due to hoisting.</li>
+          </ul>
+        </div>
+        <div class="bg-blue-200 p-4 mb-3">
+          <h class="font-bold text-black ">"let":</h2>
+          <p class="font-bold text-black">
+            let was introduced in ES6 (ECMAScript 2015) to address some of the
+            issues with var. Variables declared with let have block scope, which
+            means they are limited to the block in which they are defined, such
+            as within loops or conditional statements.
+          </p>
+          <ul class="font-bold text-amber-500 ">
+            <li>1.Block-scoped, making it safer and more predictable..</li>
+            <li>2.Not hoisted to the top of the block</li>
+          </ul>
+        </div>
+        <div class="bg-blue-200 p-4 mb-3">
+          <h2 class="font-bold text-black">"const":</h2>
+          <p class="font-bold text-black">
+            const is also introduced in ES6, and it has block scope like let.
+            However, const is used to declare constants, and once a value is
+            assigned to a const variable, it cannot be reassigned.
+          </p>
+          <ul class="font-bold text-amber-500">
+            <li>1.Block-scoped, just like let.</li>
+            <li>2.Must be initialized when declared</li>
+            <li>
+              3.Values assigned to const variables cannot be changed
+              (immutable).
+            </li>
+          </ul>
+        </div>
+      </section>
+      <br />
+      <section>
+        <h2 class="text-lg font-bold text-yellow-200">
+          Tell us the use cases of null and undefined
+        </h2>
+        <div class="bg-blue-200 p-4 mb-3">
+          <h2 class="font-bold text-black">Use Cases of null :</h2>
+          <ul class="font-bold text-amber-500">
+            <li>
+              1.null represents the intentional absence of any object value.
+            </li>
+            <li>
+              2.Use it when you want to explicitly state that a variable or
+              object property has no meaningful value.
+            </li>
+            <li>
+              3.It is often used to indicate that a variable should have no
+              value or that a property should be empty.
+            </li>
+          </ul>
+          <h2 class="font-bold text-black">Use Cases of undefined :</h2>
+          <ul class="font-bold text-amber-500">
+            <li>
+              1.undefined is the default value of variables that have been
+              declared but have not been assigned a value.
+            </li>
+            <li>
+              2.Functions that do not explicitly return a value will return
+              undefined.
+            </li>
+            <li>
+              3.Use it when a variable is declared but not yet initialized or
+              when you need to check if a property exists in an object.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <br />
+      <section>
+        <h2 class="text-lg font-bold text-yellow-200">
+          What do you mean by REST API?
+        </h2>
+        <div class="bg-blue-200 p-4 mb-3 ">
+          <br />
+          <h2 class="font-bold text-amber-500">
+            REST API (Representational State Transfer Application Programming
+            Interface)
+          </h2>
+          <br>
+          <ul class="font-bold text-black">
+            <li>
+              HTTP-Based: REST typically uses HTTP as the communication
+              protocol. This means it leverages the standard HTTP methods such
+              as GET, POST, PUT, DELETE for various operations.
+            </li>
+            <br />
+            <li>
+              Architectural Style: REST is not a protocol but an architectural
+              style used for designing networked applications.
+            </li>
+            <br />
+            <li>
+              Resource-Centric: In REST, everything is considered a resource,
+              and these resources are identified by URLs (Uniform Resource
+              Locators)
+            </li>
+            <br />
+            <li>
+              Stateless Communication: REST APIs rely on stateless communication
+              between the client and server. Each request from the client to the
+              server is independent and self-contained.
+            </li>
+            <br />
+            <li>
+              HTTP-Based: REST typically uses HTTP as the communication
+              protocol. This means it leverages the standard HTTP methods such
+              as GET, POST, PUT, DELETE for various operations.
+            </li>
+            <br />
+            <li>
+              Resource-Centric: In REST, everything is considered a resource,
+              and these resources are identified by URLs (Uniform Resource
+              Locators).
+            </li>
+            <br />
+            <li>
+              CRUD Operations: REST APIs are used for performing CRUD (Create,
+              Read, Update, Delete) operations on resources. For example, you
+              can create a new resource, retrieve its data, update it, or delete
+              it.
+            </li>
+            <br />
+            <li>
+              Security: Security mechanisms such as HTTPS and authentication can
+              be applied to REST APIs to protect data during transmission and
+              restrict access to authorized users.
+            </li>
+            <br />
+          </ul>
+        </div>
+      </section>
+    </article>
     <div class="btn rounded text-black normal-case text-xl bg-red-400">
       <button onclick="goToIndex()">Return</button>
     </div>
-       
+    <footer class="text-center my-10">
+      <p>&copy; <small>Hasnath Ahmed Tamim</small></p>
+    </footer>
 
-     
     <script src="js/index.js"></script>
   </body>
 </html>
