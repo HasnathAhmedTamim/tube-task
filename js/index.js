@@ -18,10 +18,10 @@ const handleCategory = async () => {
   //console.log(data.data);
 };
 
-const handleLoadInfos = async (categortId) => {
-  //console.log(categortId);
+const handleLoadInfos = async (categoryId) => {
+  //console.log(categoryId);
   const response = await fetch(
-    `https://openapi.programming-hero.com/api/videos/category/${categortId}`
+    `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
   );
   const data = await response.json();
   const cardContainer = document.getElementById("card-container");
@@ -40,11 +40,12 @@ const handleLoadInfos = async (categortId) => {
     cardContainer.appendChild(div);
   } else {
     data.data?.forEach((infos) => {
-      const totalMinutes = infos?.others?.posted_date;
+      const time = infos?.others?.posted_date;
 
       // Calculate hours and minutes
-      const hours = Math.floor(totalMinutes / 60);
-      const minutes = totalMinutes % 60;
+      const hours = Math.floor(time / 3600);
+      const minutes = Math.floor((time % 3600) / 60);
+      const seconds = time % 60;
 
       const div = document.createElement("div");
       div.innerHTML = `
@@ -57,7 +58,7 @@ const handleLoadInfos = async (categortId) => {
         </figure>
         <div class="bg-black text-white text-right"> ${
           hours ? hours : ""
-        }hours ${minutes ? minutes : ""}min ago</div>
+        }hours ${minutes ? minutes : ""}min  ${seconds ? seconds : ""}sec ago</div>
         
         <div class="card-body">
          <div class="flex gap-2">
