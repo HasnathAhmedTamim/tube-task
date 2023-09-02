@@ -30,18 +30,19 @@ const handleLoadInfos = async (categortId) => {
     const div = document.createElement("div");
     div.innerHTML = `
           <section class="container mx-auto h-screen flex flex-col justify-center items-center">
-            <div class="text-center">
-                <img src="images/Icon.png" alt="">
-                <h1>Oops!! Sorry, There is no content here</h1>
-            </div>
-            </section>
+  <div class="text-center justify-center items-center ">
+    <img src="images/Icon.png" alt="">
+    <h1>Oops!! Sorry, There is no content here</h1>
+  </div>
+</section>
+
         `;
     cardContainer.appendChild(div);
   } else {
     data.data?.forEach((infos) => {
       const div = document.createElement("div");
       div.innerHTML = `
-          <div class="card w-96 bg-base-100 shadow-xl">
+          <div class="mt-6 card grid grid-cols-1 bg-base-100 shadow-xl">
         <figure>
           <img
             src="${infos?.thumbnail}"
