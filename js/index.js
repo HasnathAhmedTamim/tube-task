@@ -15,6 +15,7 @@ const handleCategory = async () => {
         `;
     tabContainer.appendChild(div);
   });
+
   //console.log(data.data);
 };
 
@@ -23,9 +24,11 @@ const handleLoadInfos = async (categoryId) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
   );
+
   const data = await response.json();
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
+
   if (data.data.length === 0) {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -58,7 +61,9 @@ const handleLoadInfos = async (categoryId) => {
         </figure>
         <div class="bg-black text-white text-right"> ${
           hours ? hours : ""
-        }hours ${minutes ? minutes : ""}min  ${seconds ? seconds : ""}sec ago</div>
+        }hours ${minutes ? minutes : ""}min  ${
+        seconds ? seconds : ""
+      }sec ago</div>
         
         <div class="card-body">
          <div class="flex gap-2">
@@ -92,6 +97,7 @@ const handleLoadInfos = async (categoryId) => {
         `;
       cardContainer.appendChild(div);
       console.log(data.data);
+
       //console.log(data.data);
     });
   }
