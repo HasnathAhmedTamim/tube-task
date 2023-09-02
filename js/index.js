@@ -40,6 +40,12 @@ const handleLoadInfos = async (categortId) => {
     cardContainer.appendChild(div);
   } else {
     data.data?.forEach((infos) => {
+      const totalMinutes = infos?.others?.posted_date;
+
+      // Calculate hours and minutes
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+
       const div = document.createElement("div");
       div.innerHTML = `
           <div class="mt-6 mb-10 card grid grid-cols-1 bg-base-100 shadow-xl">
@@ -49,9 +55,9 @@ const handleLoadInfos = async (categortId) => {
             
           />
         </figure>
-        <div class="bg-black text-white text-right"><p>${
-          infos?.others?.posted_date
-        }</p></div>
+        <div class="bg-black text-white text-right"> ${
+          hours ? hours : ""
+        }hours ${minutes ? minutes : ""}min ago</div>
         
         <div class="card-body">
          <div class="flex gap-2">
@@ -76,7 +82,7 @@ const handleLoadInfos = async (categortId) => {
           </div>
 
           <div class="card-actions justify-start">
-            <div class="badge badge-outline text-base font-sm">${
+            <div class="text-base font-sm">${
               infos?.others?.views ? infos?.others?.views : "no views"
             } Views</div>
           </div>
