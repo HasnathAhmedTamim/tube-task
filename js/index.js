@@ -9,7 +9,7 @@ const handleCategory = async () => {
   data.data.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
-        <a onclick="handleLoadInfos('${category.category_id}')" class="btn join-item rounded bg-gray-200 text-black normal-case text-xl"
+        <a onclick="handleLoadInfos('${category.category_id}')" class="tab tab-active join-item rounded bg-gray-300 text-black hover:bg-red-500 normal-case text-xl"
             >${category.category}</a
          
         `;
